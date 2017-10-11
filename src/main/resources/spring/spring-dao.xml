@@ -50,4 +50,10 @@
         <!--给出需要扫描dao接口包-->
         <property name="basePackage" value="org.seckill.dao"/>
     </bean>
+    
+    <!--RedisDao-->
+    <bean id="redisDao" class="org.seckill.dao.cache.RedisDao">
+        <constructor-arg index="0" value="www.mafh.xin"/>
+        <constructor-arg index="1" value="6379"/>
+    </bean>
 </beans>

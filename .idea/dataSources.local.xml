@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="seckill@localhost" uuid="57ae4284-b749-4a53-a606-39d30a47e083">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    <data-source name="mafh" uuid="baeff881-6db5-4cf6-985d-ea15fbcc1a35">
+      <database-info product="MySQL" version="5.7.18-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.40 ( Revision: 402933ef52cad9aa82624e80acbea46e3a701ce6 )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
       <user-name>root</user-name>
+      <introspection-schemas>*:seckill</introspection-schemas>
     </data-source>
   </component>
 </project>
