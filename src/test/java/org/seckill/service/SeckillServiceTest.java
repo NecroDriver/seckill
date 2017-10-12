@@ -7,6 +7,7 @@ import org.seckill.dto.SeckillExecution;
 import org.seckill.entity.Seckill;
 import org.seckill.exception.RepeatKillException;
 import org.seckill.exception.SeckillCloseException;
+import org.seckill.exception.SeckillException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,19 @@ public class SeckillServiceTest {
         }else{
 //            秒杀未开启
             logger.warn("exposer={}",exposer);
+        }
+    }
+
+    @Test
+    public void executeSeckillProcedure() throws Exception {
+        long seckillId = 1003;
+        long phone = 17751312221L;
+        String md5 = null;
+        Exposer exposer = seckillService.exportSeckillUrl(seckillId);
+        if (exposer.isExposed()){
+            md5 = exposer.getMd5();
+            SeckillExecution seckillExecution = seckillService.executeSeckillProcedure(seckillId,phone,md5);
+            logger.info(seckillExecution.getStateInfo());
         }
     }
 }
