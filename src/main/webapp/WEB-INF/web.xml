@@ -6,6 +6,25 @@
          version="3.1"
          metadata-complete="true">
     <!--修改servlet版本为3.1-->
+    <!--对标签顺序有要求-->
+    
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <!--配置DispatcherServlet-->
     <servlet>
         <servlet-name>seckill-dispatcher</servlet-name>
@@ -16,12 +35,39 @@
         -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/spring-*.xml</param-value>
+            <param-value>classpath*:/spring/spring-*.xml</param-value>
         </init-param>
+        <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>seckill-dispatcher</servlet-name>
         <!--默认匹配所有请求-->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--  附：web.xml标签放置顺序
+ 1. icon?
+ 2. display-name?
+ 3. description?
+ 4. distributable?
+ 5. context-param*
+ 6. filter*
+ 7. filter-mapping*
+ 8. listener*
+ 9. servlet*
+ 10.servlet-mapping*
+ 11.session-config?
+ 12.mime-mapping*
+ 13.welcome-file-list?
+ 14.error-page*
+ 15.taglib*
+ 16.resource-env-ref*
+ 17.resource-ref*
+ 18.security-constraint*
+ 19.login-config?
+ 20.security-role*
+ 21.env-entry*
+ 22.ejb-ref*
+ 23.ejb-local-ref
+ "?"表示该标签出现次数最多为1，"*"表示可以多次出现。 -->
 </web-app>
