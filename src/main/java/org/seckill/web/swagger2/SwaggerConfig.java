@@ -1,7 +1,7 @@
-package org.io.swagger2;
+package org.seckill.web.swagger2;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -14,7 +14,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@WebAppConfiguration
+@Configuration
 @EnableSwagger2
 @EnableWebMvc
 public class SwaggerConfig extends WebMvcConfigurerAdapter{
@@ -37,7 +37,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter{
     }
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("使用Swagger2构建RESTful APIs")
+                .title("使用Swagger2构建RESTful APIS")
                 .description("更多内容描述敬请期待http://www.mafh.xin:8088/")
                 .termsOfServiceUrl("http://www.mafh.xin:8088/")
                 .contact(new Contact("mafh","http://www.mafh.xin:8088/","necrodriver@foxmail.com"))
